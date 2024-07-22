@@ -10,12 +10,12 @@ class App(tk.Tk):
 
     def __init__(self):
         super().__init__()
-        self.geometry("360x550")
+        self.geometry("360x420")
         self.resizable(False, False)
         self.title("SQL App")
 
-        self.tk.call("source", "azure.tcl")
-        self.tk.call("set_theme", "light")
+        #self.tk.call("source", "azure.tcl")
+        #self.tk.call("set_theme", "light")
 
         self.columnconfigure(0, weight=1)
         self.columnconfigure(1, weight=1)
