@@ -6,7 +6,7 @@ import sqlite3
 class App(tk.Tk):
 
     # Nombre de nuestra base de datos
-    db_name = "database.db"
+    database = "database.db"
 
     def __init__(self):
         super().__init__()
@@ -60,7 +60,7 @@ class App(tk.Tk):
     # Funcion que nos permite correr los querys
     def run_query(self, query, parameters=()):
         try:
-            with sqlite3.connect(self.db_name) as connector:
+            with sqlite3.connect(self.database) as connector:
                 cursor = connector.cursor()
                 result = cursor.execute(query, parameters)
                 connector.commit()
@@ -73,7 +73,7 @@ class App(tk.Tk):
     def create_table(self):
         query = """
         CREATE TABLE IF NOT EXISTS Alumnos (
-            id INTEGER PRIMARY KEY,
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             age INTEGER NOT NULL
         )"""
